@@ -1,7 +1,14 @@
 <?php
 
-namespace Elementor;
+namespace QualArch\PostCarousel;
 
+use Elementor\Widget_Base;
+use Elementor\Controls_Manager;
+use Elementor\Group_Control_Image_Size;
+use Elementor\Group_Control_Box_Shadow;
+use Elementor\Group_Control_Css_Filter;
+use Elementor\Group_Control_Typography;
+use Elementor\Group_Control_Text_Shadow;
 use Elementor\Core\Kits\Documents\Tabs\Global_Colors;
 use Elementor\Core\Kits\Documents\Tabs\Global_Typography;
 
@@ -97,7 +104,7 @@ class Post_Carousel_Addons extends Widget_Base {
      * @since 1.0.0
      * @access protected
      */
-    protected function _register_controls() {
+    protected function register_controls() {
         /**
          *  Here you can add your controls. The controls below are only examples.
          *  Check this: https://developers.elementor.com/elementor-controls/
@@ -107,7 +114,7 @@ class Post_Carousel_Addons extends Widget_Base {
         $this->start_controls_section(
             'slider_configuration',
             [
-                'label' => __('Slider', 'post-slider-for-elementor'),
+                'label' => __('Slider', 'post-carousel-addons-for-elementor'),
                 'tab' => \Elementor\Controls_Manager::TAB_CONTENT,
             ]
         );
@@ -150,10 +157,10 @@ class Post_Carousel_Addons extends Widget_Base {
         $this->add_control(
             'center_mode',
             [
-                'label' => __('Center Mode', 'post-slider-for-elementor'),
+                'label' => __('Center Mode', 'post-carousel-addons-for-elementor'),
                 'type' => \Elementor\Controls_Manager::SWITCHER,
-                'label_on' => esc_html__('Yes', 'post-slider-for-elementor'),
-                'label_off' => esc_html__('No', 'post-slider-for-elementor'),
+                'label_on' => esc_html__('Yes', 'post-carousel-addons-for-elementor'),
+                'label_off' => esc_html__('No', 'post-carousel-addons-for-elementor'),
                 'return_value' => 'yes',
                 'default' => 'No',
             ]
@@ -171,10 +178,10 @@ class Post_Carousel_Addons extends Widget_Base {
         $this->add_control(
             'display_arrow',
             [
-                'label' => __('Show Arrow', 'post-slider-for-elementor'),
+                'label' => __('Show Arrow', 'post-carousel-addons-for-elementor'),
                 'type' => \Elementor\Controls_Manager::SWITCHER,
-                'label_on' => esc_html__('Yes', 'post-slider-for-elementor'),
-                'label_off' => esc_html__('No', 'post-slider-for-elementor'),
+                'label_on' => esc_html__('Yes', 'post-carousel-addons-for-elementor'),
+                'label_off' => esc_html__('No', 'post-carousel-addons-for-elementor'),
                 'return_value' => 'yes',
                 'default' => 'yes',
             ]
@@ -245,10 +252,10 @@ class Post_Carousel_Addons extends Widget_Base {
         $this->add_control(
             'display_dots',
             [
-                'label' => __('Show Dots', 'post-slider-for-elementor'),
+                'label' => __('Show Dots', 'post-carousel-addons-for-elementor'),
                 'type' => \Elementor\Controls_Manager::SWITCHER,
-                'label_on' => esc_html__('Yes', 'post-slider-for-elementor'),
-                'label_off' => esc_html__('No', 'post-slider-for-elementor'),
+                'label_on' => esc_html__('Yes', 'post-carousel-addons-for-elementor'),
+                'label_off' => esc_html__('No', 'post-carousel-addons-for-elementor'),
                 'return_value' => 'yes',
                 'default' => 'yes',
 
@@ -265,10 +272,10 @@ class Post_Carousel_Addons extends Widget_Base {
         $this->add_control(
             'autoplay_carousel',
             [
-                'label' => __('Auto PLay', 'post-slider-for-elementor'),
+                'label' => __('Auto PLay', 'post-carousel-addons-for-elementor'),
                 'type' => \Elementor\Controls_Manager::SWITCHER,
-                'label_on' => esc_html__('Yes', 'post-slider-for-elementor'),
-                'label_off' => esc_html__('No', 'post-slider-for-elementor'),
+                'label_on' => esc_html__('Yes', 'post-carousel-addons-for-elementor'),
+                'label_off' => esc_html__('No', 'post-carousel-addons-for-elementor'),
                 'return_value' => 'yes',
                 'default' => 'yes',
             ]
@@ -284,10 +291,10 @@ class Post_Carousel_Addons extends Widget_Base {
         $this->add_control(
             'infinite_carousel',
             [
-                'label' => __('Infinite Slide', 'post-slider-for-elementor'),
+                'label' => __('Infinite Slide', 'post-carousel-addons-for-elementor'),
                 'type' => \Elementor\Controls_Manager::SWITCHER,
-                'label_on' => esc_html__('Yes', 'post-slider-for-elementor'),
-                'label_off' => esc_html__('No', 'post-slider-for-elementor'),
+                'label_on' => esc_html__('Yes', 'post-carousel-addons-for-elementor'),
+                'label_off' => esc_html__('No', 'post-carousel-addons-for-elementor'),
                 'return_value' => 'yes',
                 'default' => 'yes',
             ]
@@ -297,7 +304,7 @@ class Post_Carousel_Addons extends Widget_Base {
         $this->start_controls_section(
             'item_configuration',
             [
-                'label' => __('Slide', 'post-slider-for-elementor'),
+                'label' => __('Slide', 'post-carousel-addons-for-elementor'),
                 'tab' => \Elementor\Controls_Manager::TAB_CONTENT,
             ]
         );
@@ -305,10 +312,10 @@ class Post_Carousel_Addons extends Widget_Base {
         $this->add_control(
             'display_image',
             [
-                'label' => __('Show Image', 'post-slider-for-elementor'),
+                'label' => __('Show Image', 'post-carousel-addons-for-elementor'),
                 'type' => \Elementor\Controls_Manager::SWITCHER,
-                'label_on' => esc_html__('Yes', 'post-slider-for-elementor'),
-                'label_off' => esc_html__('No', 'post-slider-for-elementor'),
+                'label_on' => esc_html__('Yes', 'post-carousel-addons-for-elementor'),
+                'label_off' => esc_html__('No', 'post-carousel-addons-for-elementor'),
                 'return_value' => 'yes',
                 'default' => 'yes',
             ]
@@ -326,7 +333,7 @@ class Post_Carousel_Addons extends Widget_Base {
         $this->add_responsive_control(
             'post_thumbnail_ratio',
             [
-                'label' => esc_html__('Thumbnail Ratio', 'product-filter-widget-for-elementor'),
+                'label' => esc_html__('Thumbnail Ratio', 'post-carousel-addons-for-elementor'),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => ['%', 'px'],
                 'range' => [
@@ -386,10 +393,10 @@ class Post_Carousel_Addons extends Widget_Base {
         $this->add_control(
             'display_excerpt',
             [
-                'label' => __('Show Excerpt', 'post-slider-for-elementor'),
+                'label' => __('Show Excerpt', 'post-carousel-addons-for-elementor'),
                 'type' => \Elementor\Controls_Manager::SWITCHER,
-                'label_on' => esc_html__('Yes', 'post-slider-for-elementor'),
-                'label_off' => esc_html__('No', 'post-slider-for-elementor'),
+                'label_on' => esc_html__('Yes', 'post-carousel-addons-for-elementor'),
+                'label_off' => esc_html__('No', 'post-carousel-addons-for-elementor'),
                 'return_value' => 'yes',
                 'default' => 'yes',
                 'separator' => 'before',
@@ -412,10 +419,10 @@ class Post_Carousel_Addons extends Widget_Base {
         $this->add_control(
             'display_link',
             [
-                'label' => __('Show Link', 'post-slider-for-elementor'),
+                'label' => __('Show Link', 'post-carousel-addons-for-elementor'),
                 'type' => \Elementor\Controls_Manager::SWITCHER,
-                'label_on' => esc_html__('Yes', 'post-slider-for-elementor'),
-                'label_off' => esc_html__('No', 'post-slider-for-elementor'),
+                'label_on' => esc_html__('Yes', 'post-carousel-addons-for-elementor'),
+                'label_off' => esc_html__('No', 'post-carousel-addons-for-elementor'),
                 'return_value' => 'yes',
                 'default' => 'yes',
                 'separator' => 'before',
@@ -425,9 +432,9 @@ class Post_Carousel_Addons extends Widget_Base {
         $this->add_control(
             'read_more_text',
             [
-                'label' => __('Read More:', 'plugin-name'),
+                'label' => __('Read More:', 'post-carousel-addons-for-elementor'),
                 'type' => \Elementor\Controls_Manager::TEXT,
-                'default' => esc_html__('Read More', 'post-slider-for-elementor'),
+                'default' => esc_html__('Read More', 'post-carousel-addons-for-elementor'),
                 // 'label_block' => true,
                 'description' => 'Change Read More Text from Here',
                 'condition' => [
@@ -439,10 +446,10 @@ class Post_Carousel_Addons extends Widget_Base {
         $this->add_control(
             'open_in_new_window',
             [
-                'label' => __('Open in new window', 'post-slider-for-elementor'),
+                'label' => __('Open in new window', 'post-carousel-addons-for-elementor'),
                 'type' => \Elementor\Controls_Manager::SWITCHER,
-                'label_on' => esc_html__('Yes', 'post-slider-for-elementor'),
-                'label_off' => esc_html__('No', 'post-slider-for-elementor'),
+                'label_on' => esc_html__('Yes', 'post-carousel-addons-for-elementor'),
+                'label_off' => esc_html__('No', 'post-carousel-addons-for-elementor'),
                 'return_value' => 'yes',
                 'default' => 'yes',
                 'condition' => [
@@ -457,7 +464,7 @@ class Post_Carousel_Addons extends Widget_Base {
         $this->start_controls_section(
             'query_configuration',
             [
-                'label' => __('Query', 'eshuzu-themes-widget'),
+                'label' => __('Query', 'post-carousel-addons-for-elementor'),
                 'tab' => \Elementor\Controls_Manager::TAB_CONTENT,
             ]
         );
@@ -684,6 +691,27 @@ class Post_Carousel_Addons extends Widget_Base {
         $this->end_controls_tabs();
 
         $this->add_control(
+            'query_relation',
+            [
+                'label' => __('Query Relation', 'post-carousel-addons-for-elementor'),
+                'type' => \Elementor\Controls_Manager::SELECT,
+                'options' => [
+                    'AND' => __('AND - Match all conditions', 'post-carousel-addons-for-elementor'),
+                    'OR' => __('OR - Match any condition', 'post-carousel-addons-for-elementor'),
+                ],
+                'default' => 'AND',
+                'separator' => 'before',
+                'description' => __('AND: Posts must match all selected filters. OR: Posts can match any filter.', 'post-carousel-addons-for-elementor'),
+                'conditions' => [
+                    'relation' => 'and',
+                    'terms' => [
+                        ['name' => 'post_type', 'operator' => '==', 'value' => 'post'],
+                    ]
+                ],
+            ]
+        );
+
+        $this->add_control(
             'post_order_by',
             [
                 'label' => __('Order By', 'post-carousel-addons-for-elementor'),
@@ -715,10 +743,10 @@ class Post_Carousel_Addons extends Widget_Base {
         $this->add_control(
             'ignore_sticky_post',
             [
-                'label' => __('Ignore Sticky Posts', 'post-slider-for-elementor'),
+                'label' => __('Ignore Sticky Posts', 'post-carousel-addons-for-elementor'),
                 'type' => \Elementor\Controls_Manager::SWITCHER,
-                'label_on' => esc_html__('Yes', 'post-slider-for-elementor'),
-                'label_off' => esc_html__('No', 'post-slider-for-elementor'),
+                'label_on' => esc_html__('Yes', 'post-carousel-addons-for-elementor'),
+                'label_off' => esc_html__('No', 'post-carousel-addons-for-elementor'),
                 'return_value' => 'yes',
                 'default' => 'yes',
                 'description' => 'Sticky-posts ordering is visible on frontend only',
@@ -730,7 +758,7 @@ class Post_Carousel_Addons extends Widget_Base {
         $this->start_controls_section(
             'layout',
             [
-                'label' => __('Layout', 'text-domain'),
+                'label' => __('Layout', 'post-carousel-addons-for-elementor'),
                 'tab' => \Elementor\Controls_Manager::TAB_STYLE,
             ]
         );
@@ -1967,7 +1995,7 @@ class Post_Carousel_Addons extends Widget_Base {
                                     $thumbnail = Group_Control_Image_Size::get_attachment_image_src(get_post_thumbnail_id(), 'thumbnail_size', $settings); ?>
                                     <div class="esz_post_thumb">
                                         <img class="esz_post_thumb_img elementor-animation-<?php echo esc_html($settings['hover_animation']); ?>"
-                                             src="<?php echo esc_url($thumbnail); ?>" alt="">
+                                             src="<?php echo esc_url($thumbnail); ?>" alt="<?php echo esc_attr(get_the_title()); ?>" loading="lazy">
                                     </div>
                                 <?php endif; ?>
                                 <h3 class="esz_post_title"><?php the_title(); ?></h3>
@@ -1982,7 +2010,7 @@ class Post_Carousel_Addons extends Widget_Base {
                                 if ($settings['display_link'] == 'yes') : ?>
                                     <div class="esz_post_link">
                                         <a class=""
-                                           href="<?php the_permalink(); ?>"><?php echo esc_html($settings['read_more_text']) ?> </a>
+                                           href="<?php the_permalink(); ?>"<?php echo ($settings['open_in_new_window'] == 'yes') ? ' target="_blank" rel="noopener noreferrer"' : ''; ?>><?php echo esc_html($settings['read_more_text']) ?> </a>
                                     </div>
                                 <?php endif; ?>
                             </div>
@@ -2005,7 +2033,6 @@ class Post_Carousel_Addons extends Widget_Base {
         <?php
         /* Restore original Post Data */
         wp_reset_postdata();
-        wp_reset_query();
     }
 
     protected function render_meta_data($settings) {

@@ -1,0 +1,16 @@
+# Post Carousel Addons for Elementor - Translation Template
+# Copyright (C) 2026 QualArch
+# This file is distributed under the same license as the plugin.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Post Carousel Addons for Elementor 1.0.9\n"
+"Report-Msgid-Bugs-To: https://www.qualarch.com/\n"
+"POT-Creation-Date: 2026-01-10 16:00:00+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2026-01-10 16:00:00+0000\n"
+"Language-Team: QualArch\n"
+"X-Generator: Gemini Code Assist\n"
+"X-Domain: post-carousel-addons-for-elementor\n"

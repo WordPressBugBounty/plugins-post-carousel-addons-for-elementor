@@ -4,7 +4,7 @@
  * Description: Post Carousel Slider for Elementor Lets you display your WordPress Posts as Slider. You can now show your posts using this plugin easily to your users as a Carousel Slider
  * Author: QualArch
  * Author URI: https://www.qualarch.com/
- * Version: 1.0.9
+ * Version: 1.1.0
  * License: GPLv2
  * License URI: https://www.gnu.org/licenses/gpl-2.0.html
  * Text Domain: post-carousel-addons-for-elementor
@@ -23,7 +23,7 @@ final class Post_Carousel_Addons_For_Elementor {
      *
      * @var string The plugin version.
      */
-    const VERSION = '1.0.9';
+    const VERSION = '1.1.0';
 
     /**
      * Minimum Elementor Version
@@ -41,7 +41,7 @@ final class Post_Carousel_Addons_For_Elementor {
      *
      * @var string Minimum PHP version required to run the plugin.
      */
-    const MINIMUM_PHP_VERSION = '6.0';
+    const MINIMUM_PHP_VERSION = '7.4';
 
     /**
      * Instance
@@ -64,11 +64,21 @@ final class Post_Carousel_Addons_For_Elementor {
      */
 
     protected function __construct() {
+        // Load plugin textdomain for translations
+        load_plugin_textdomain('post-carousel-addons-for-elementor', false, dirname(plugin_basename(__FILE__)) . '/languages');
+
         // Check if Elementor installed and activated
         if (!did_action('elementor/loaded')) {
             add_action('admin_notices', [$this, 'admin_notice_missing_main_plugin']);
             return;
         }
+
+        // Check for required Elementor version
+        if (!version_compare(ELEMENTOR_VERSION, self::MINIMUM_ELEMENTOR_VERSION, '>=')) {
+            add_action('admin_notices', [$this, 'admin_notice_minimum_elementor_version']);
+            return;
+        }
+
         // Check for required PHP version
         if (version_compare(PHP_VERSION, self::MINIMUM_PHP_VERSION, '<')) {
             add_action('admin_notices', [$this, 'admin_notice_minimum_php_version']);
@@ -79,7 +89,7 @@ final class Post_Carousel_Addons_For_Elementor {
         require_once('widgets/post-carousel-addons.php');
 
         // Register Widget
-        add_action('elementor/widgets/widgets_registered', [$this, 'register_widgets']);
+        add_action('elementor/widgets/register', [$this, 'register_widgets']);
 
         // Register Widget Styles
         add_action('elementor/frontend/after_enqueue_styles', [$this, 'widget_styles']);
@@ -93,12 +103,12 @@ final class Post_Carousel_Addons_For_Elementor {
         return static::$instance;
     }
 
-    public function register_widgets() {
-        \Elementor\Plugin::instance()->widgets_manager->register(new \Elementor\Post_Carousel_Addons());
+    public function register_widgets($widgets_manager) {
+        $widgets_manager->register(new \QualArch\PostCarousel\Post_Carousel_Addons());
     }
 
     public function widget_styles() {
-        wp_enqueue_style('eshuzu_slick_style', plugins_url('assets/slick/slick.css', __FILE__), false, rand());
+        wp_enqueue_style('eshuzu_slick_style', plugins_url('assets/slick/slick.css', __FILE__), false, self::VERSION);
         wp_enqueue_style('eshuzu-widget-stylesheet', plugins_url('assets/css/post-carousel-addons-for-elementor.css', __FILE__), false, self::VERSION);
     }
 

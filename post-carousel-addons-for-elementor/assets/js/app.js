@@ -15,18 +15,18 @@
                 slide_scroll_mobile: parseInt(CarouselFrame.attr('data-slide_scroll_mobile')),
 
                 /*Slider Arrow*/
-                slide_arrow_show: Boolean(CarouselFrame.attr('data-arrow_show')),
+                slide_arrow_show: CarouselFrame.attr('data-arrow_show') === '1',
                 next_arrow: $scope.find('.next_arrow'),
                 previous_arrow: $scope.find('.previous_arrow'),
 
                 /*Slide Dots*/
-                slide_dots_show: Boolean(CarouselFrame.attr('data-dots_show')),
+                slide_dots_show: CarouselFrame.attr('data-dots_show') === '1',
 
                 /*Slide Other Configuration*/
-                slide_center_mode: Boolean(CarouselFrame.attr('data-center_mode')),
-                autoplay_slide: Boolean(CarouselFrame.attr('data-autoplay')),
+                slide_center_mode: CarouselFrame.attr('data-center_mode') === '1',
+                autoplay_slide: CarouselFrame.attr('data-autoplay') === '1',
                 autoplay_speed: parseInt(CarouselFrame.attr('data-autoplaySpeed')),
-                infinite: Boolean(CarouselFrame.attr('data-infinite')),
+                infinite: CarouselFrame.attr('data-infinite') === '1',
 
             };
             CarouselFrame.slick({
